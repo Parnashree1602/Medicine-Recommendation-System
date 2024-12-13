@@ -1,0 +1,99 @@
+body {
+    font-family: "Inter", serif !important;
+    margin: 0;
+    padding: 0;
+    background-color: #dbeaff !important;
+}
+
+
+.container {
+    width: 70% !important;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    padding: 5vw !important;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    margin: 20px 0;
+}
+
+input, button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background: #007BFF;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+#result {
+    margin-top: 20px;
+}
+
+.custom-navbar {
+    background-color: #dbeaff; /* Light blue background color */
+    /* padding: 15px 20px; Padding for the navbar */
+    margin-bottom: 20px; /* Bottom margin for spacing */
+}
+
+.custom-brand {
+    color: #2761f0 !important; /* Dark blue text color for EZHealth */
+    font-weight: bold; /* Bold text */
+    font-size: 2rem; /* Text size */
+}
+
+.nav-link {
+    transition: all 0.3s ease; /* Smooth transition for color and size */
+}
+
+.nav-link:hover {
+    color: #2761f0 !important; 
+    transform: scale(1.1); /* Slightly increase the size */
+}
+nav{
+    background-color: #dbeaff;
+    height: 8vh;
+}
+
+#symptom-form{
+    margin: 5vh 0 5vh 0;
+}
+#symptom-form label{
+    margin: 0 0 1vh 0;
+}
+.sym{
+    display: flex;
+    flex-wrap: wrap;
+}
+.sym p{
+    margin-right: 20px;
+    background-color: #dbeaff;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+.container h2{
+margin-bottom: 3vh;
+}
+#my-image {
+    position: relative;
+    z-index: 100;
+    width: 40px; 
+    border-radius: 50%;
+    height: auto;
+}

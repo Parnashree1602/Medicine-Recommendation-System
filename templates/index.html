@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Prediction System</title>
+    <link rel="shortcut icon" href="/static/images/icon2.png" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="static/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="d-flex justify-content-around align-items-center">
+        <div class="fs-3" style="font-weight: bold; font-size: large; color: #2761f0; ">
+            <img id="my-image" src="/static/images/icon.png" alt="Image t7">
+            MediMate
+        </div>
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link active" style="color: black;" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" style="color: black;" href="/about">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" style="color: black;" href="/blog">Blog</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" style="color: black;" href="/contact">Contact</a>
+            </li>
+        </ul>
+    </nav>
+
+
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1 class="text-center">Disease Prediction System</h1>
+        <form id="symptom-form">
+            <label for="symptoms">Enter your symptoms (comma-separated):</label>
+            <input type="text" id="symptoms" name="symptoms" placeholder="e.g., itching, skin_rash"
+                class="form-control">
+            <button type="button" class="btn btn-primary mt-3" id="predict-btn"
+                onclick="getPrediction()">Predict</button>
+        </form>
+        <div id="result" style="display: none;">
+            <h2>Prediction Results</h2>
+            <p><strong>Predicted Disease:</strong> <span id="predicted-disease"></span></p>
+            <p><strong>Description:</strong> <span id="description"></span></p>
+            <p><strong>Precautions:</strong>
+            <ul id="precautions"></ul>
+            </p>
+            <p><strong>Medications:</strong> <span id="medications"></span></p>
+            <p><strong>Diets:</strong> <span id="diets"></span></p>
+            <p><strong>Workout:</strong>
+            <ul id="workout"></ul>
+            </p>
+        </div>
+    </div>
+    <div class="container">
+        <h2>Symptoms List:</h2>
+        <div class="sym">
+            <p>itching</p>
+            <p>skin_rash</p>
+            <p>nodal_skin_eruptions</p>
+            <p>continuous_sneezing</p>
+            <p>shivering</p>
+            <p>chills</p>
+            <p>joint_pain</p>
+            <p>stomach_pain</p>
+            <p>acidity</p>
+            <p>ulcers_on_tongue</p>
+            <p>muscle_wasting</p>
+            <p>vomiting</p>
+            <p>burning_micturition</p>
+            <p>spotting_urination</p>
+            <p>fatigue</p>
+            <p>weight_gain</p>
+            <p>anxiety</p>
+            <p>cold_hands_and_feets</p>
+            <p>mood_swings</p>
+            <p>weight_loss</p>
+            <p>restlessness</p>
+            <p>lethargy</p>
+            <p>patches_in_throat</p>
+            <p>irregular_sugar_level</p>
+            <p>cough</p>
+            <p>high_fever</p>
+            <p>sunken_eyes</p>
+            <p>breathlessness</p>
+            <p>sweating</p>
+            <p>dehydration</p>
+            <p>indigestion</p>
+            <p>headache</p>
+            <p>yellowish_skin</p>
+            <p>dark_urine</p>
+            <p>nausea</p>
+            <p>loss_of_appetite</p>
+            <p>pain_behind_the_eyes</p>
+            <p>back_pain</p>
+            <p>constipation</p>
+            <p>abdominal_pain</p>
+            <p>diarrhoea</p>
+            <p>mild_fever</p>
+            <p>yellow_urine</p>
+            <p>yellowing_of_eyes</p>
+            <p>acute_liver_failure</p>
+            <p>fluid_overload</p>
+            <p>swelling_of_stomach</p>
+            <p>swelled_lymph_nodes</p>
+            <p>malaise</p>
+            <p>blurred_and_distorted_vision</p>
+            <p>phlegm</p>
+            <p>throat_irritation</p>
+            <p>redness_of_eyes</p>
+            <p>sinus_pressure</p>
+            <p>runny_nose</p>
+            <p>congestion</p>
+            <p>chest_pain</p>
+            <p>weakness_in_limbs</p>
+            <p>fast_heart_rate</p>
+            <p>pain_during_bowel_movements</p>
+            <p>pain_in_anal_region</p>
+            <p>bloody_stool</p>
+            <p>irritation_in_anus</p>
+            <p>neck_pain</p>
+            <p>dizziness</p>
+            <p>cramps</p>
+            <p>bruising</p>
+            <p>obesity</p>
+            <p>swollen_legs</p>
+            <p>swollen_blood_vessels</p>
+            <p>puffy_face_and_eyes</p>
+            <p>enlarged_thyroid</p>
+            <p>brittle_nails</p>
+            <p>swollen_extremeties</p>
+            <p>excessive_hunger</p>
+            <p>extra_marital_contacts</p>
+            <p>drying_and_tingling_lips</p>
+            <p>slurred_speech</p>
+            <p>knee_pain</p>
+            <p>hip_joint_pain</p>
+            <p>muscle_weakness</p>
+            <p>stiff_neck</p>
+            <p>swelling_joints</p>
+            <p>movement_stiffness</p>
+            <p>spinning_movements</p>
+            <p>loss_of_balance</p>
+            <p>unsteadiness</p>
+            <p>weakness_of_one_body_side</p>
+            <p>loss_of_smell</p>
+            <p>bladder_discomfort</p>
+            <p>foul_smell_of_urine</p>
+            <p>continuous_feel_of_urine</p>
+            <p>passage_of_gases</p>
+            <p>internal_itching</p>
+            <p>toxic_look_(typhos)</p>
+            <p>depression</p>
+            <p>irritability</p>
+            <p>muscle_pain</p>
+            <p>altered_sensorium</p>
+            <p>red_spots_over_body</p>
+            <p>belly_pain</p>
+            <p>abnormal_menstruation</p>
+            <p>dischromic _patches</p>
+            <p>watering_from_eyes</p>
+            <p>increased_appetite</p>
+            <p>polyuria</p>
+            <p>family_history</p>
+            <p>mucoid_sputum</p>
+            <p>rusty_sputum</p>
+            <p>lack_of_concentration</p>
+            <p>visual_disturbances</p>
+            <p>receiving_blood_transfusion</p>
+            <p>receiving_unsterile_injections</p>
+            <p>coma</p>
+            <p>stomach_bleeding</p>
+            <p>distention_of_abdomen</p>
+            <p>history_of_alcohol_consumption</p>
+            <p>fluid_overload.1</p>
+            <p>blood_in_sputum</p>
+            <p>prominent_veins_on_calf</p>
+            <p>palpitations</p>
+            <p>painful_walking</p>
+            <p>pus_filled_pimples</p>
+            <p>blackheads</p>
+            <p>scurring</p>
+            <p>skin_peeling</p>
+            <p>silver_like_dusting</p>
+            <p>small_dents_in_nails</p>
+            <p>inflammatory_nails</p>
+            <p>blister</p>
+            <p>red_sore_around_nose</p>
+            <p>yellow_crust_ooze</p>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="static/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
