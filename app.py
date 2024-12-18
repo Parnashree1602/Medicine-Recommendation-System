@@ -39,11 +39,14 @@ def predict():
     prediction = svc.predict(input_df)[0]
     disease = diseases_list[prediction]
     desc, pre, med, diet, wrkout = helper(disease)
+    if isinstance(med, str):
+        med = [item.strip() for item in med.split(",")]
+
     return jsonify({
         'disease': disease,
         'description': desc,
-        'precautions': pre,
-        'medications': med, 
+        'precautions': [precaution for precaution in pre if str(precaution) != 'nan'],
+        'medications': med,
         'diets': diet,
         'workout': wrkout
     })
