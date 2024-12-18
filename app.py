@@ -29,7 +29,7 @@ def index():
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    symptoms = request.json.get('symptoms', [])
+    symptoms = [sym.lower() for sym in request.json.get('symptoms', [])]
     input_vector = np.zeros(len(symptoms_dict))
     for sym in symptoms:
         if sym in symptoms_dict:
