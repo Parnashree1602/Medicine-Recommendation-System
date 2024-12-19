@@ -66,5 +66,3 @@ This project is licensed under the [MIT License](LICENSE).
 ## Contact
 For questions or support, please contact at [dasparnashree16@gmail.com](mailto:dasparnashree16@gmail.com).
 
----
-Take control of your health today with MediMate!
